@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MAYANK GUPTA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        .image-container {
+            position: relative;
+        }
+        .image-container img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .image-container:hover img {
+            opacity: 0.5;
+        }
+        .image-container img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        .image-container .image-name {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-container:hover .image-name {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-800 pt-20">
+
+    <!-- Fixed Header -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
+
+        <!-- Navigation Menu -->
+        <nav class="flex flex-wrap space-x-4 text-lg">
+            <a href="home_page.html" class="text-gray-700 hover:text-gray-900">Home</a>
+            <a href="animation.html" class="text-gray-700 hover:text-gray-900">Animation</a>
+            <a href="studio.html" class="text-gray-700 hover:text-gray-900">Studies</a>
+            <a href="contact_about.html" class="text-gray-700 hover:text-gray-900">About / Contact</a>
+        </nav>
+    </header>
+
+    <!-- Content Section -->
+    <main class="container mx-auto py-8 px-4 mt-16">
+        <section class="mb-8 text-gray-400">
+            <h2 class="text-2xl font-bold mb-4">Winter Sweater prop</h2>
+            <p class="mb-4">
+                This project is the result of constant work and the start of some great work I have taken a huge leap forward in my artistic skills. Modeling and texturing completed in one Marvelous Designer.
+                I would like to say many thanks to my friends who supported me through this long but fruitful period and gave their feedback and extremely useful guidance.                </p>
+        <section class="mb-8 text-gray-400">
+            <h2 class="text-xl font-bold mb-4">Softwares</h2>
+            <p class="mb-4">
+            <p>
+                Marvelous Designer, CLO 3D, Photoshop
+            </p>
+        </section>
+
+        <!-- Concepts Section -->
+        <section class="mb-8 text-gray-400">
+            <h2 class="text-xl font-bold mb-4">Creative Showcase</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="image-container">
+                    <img src="images/cloth/c (1).jpg" alt="Concept art 1" class="w-full h-auto rounded-lg shadow-md"/>
+                       </div>
+                <div class="image-container">
+                    <img src="images/cloth/c (4).jpg" alt="Concept art 2" class="w-full h-auto rounded-lg shadow-md"/>
+                </div>
+                <div class="image-container">
+                    <img src="images/cloth/c (2).jpg" alt="Concept art 3" class="w-full h-auto rounded-lg shadow-md"/>
+                </div>
+                <div class="image-container">
+                    <img src="images/cloth/c (3).jpg" alt="Concept art 4" class="w-full h-auto rounded-lg shadow-md"/>
+                </div>
+                <div class="image-container">
+                    <img src="images/cloth/c (5).jpg" alt="Lantern Concept" class="w-full h-auto rounded-lg shadow-md"/>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Animation Process -->
+        <section>
+            <h2 class="text-xl text-gray-400 font-bold mb-4">In Motion</h2>
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe src="images/hand.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

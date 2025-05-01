@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank Gupta</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- 3D hover styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      background-color: rgb(0, 0, 0);
+    }
+
+    .cover-image,
+    .character {
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <div id="header-placeholder"></div>
+  <script>
+      fetch('header.html')
+          .then(response => response.text())
+          .then(data => document.getElementById('header-placeholder').innerHTML = data);
+  </script>
+
+    <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+
+    <nav id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-6 text-lg absolute md:relative top-16 left-0 w-full bg-white md:top-0 md:w-auto shadow-md md:shadow-none px-6 py-4 md:p-0">
+      <a href="home_page.html" class="text-gray-400 font-thin hover:text-gray-900">Home</a>
+      <a href="studio.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Studies</a>
+      <a href="work.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Work</a>
+      <a href="contact_about.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; About / Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    document.getElementById("menu-btn").addEventListener("click", function () {
+      document.getElementById("menu").classList.toggle("hidden");
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 768) {
+        document.getElementById("menu").classList.remove("hidden");
+      } else {
+        document.getElementById("menu").classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- ✅ Cards Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-60 px-4 sm:px-8 lg:px-16 py-10 mt-[250px]">
+
+    <!-- Card 1 -->
+    <div class="card-wrapper flex justify-center">
+  <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+    <div class="wrapper">
+      <img src="images/Kathakali/frnt.png" class="cover-image" alt="Background" />
+    </div>
+    <img src="images/Kathakali/frnt_bg.png" class="character" alt="Character" />
+    <!-- ✅ Title with Link -->
+    <div class="title text-white text-center mt-4">
+      <a href="kathak.html" class="text-xl font-semibold text-white hover:underline">Kathakali Dance</a>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Card 2 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/Bharatanatyam/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/Bharatanatyam/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="bharat.html" class="text-xl font-semibold text-white hover:underline">Bharatanatyam Dance</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/hand/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/hand/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="hand.html" class="text-xl font-semibold text-white hover:underline">Hand</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/omovally/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/omovally/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="boy.html" class="text-xl font-semibold text-white hover:underline">Boy</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/face/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/face/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="face.html" class="text-xl font-semibold text-white hover:underline">Face</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 6 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/cloth/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/cloth/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="cloth.html" class="text-xl font-semibold text-white hover:underline">Cloth</a>
+        </div>
+      </div>
+    </div>
+
+   <!-- Card 7 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/car/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/car/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="car.html" class="text-xl font-semibold text-white hover:underline">Car</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/umberlla/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/umberlla/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="umberlla.html" class="text-xl font-semibold text-white hover:underline">Umberlla</a>
+        </div>
+      </div>
+    </div>
+
+   <!-- Card 9 -->
+    <div class="card-wrapper flex justify-center">
+      <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <div class="wrapper">
+          <img src="images/hammer/frnt.png" class="cover-image" alt="Background" />
+        </div>
+        <img src="images/hammer/frnt_bg.png" class="character" alt="Character" />
+        <!-- ✅ Title with Link -->
+        <div class="title text-white text-center mt-4">
+          <a href="hammer.html" class="text-xl font-semibold text-white hover:underline">Hammer</a>
+        </div>
+      </div>
+    </div>
+    <!-- Center Bottom GIF -->
+    <div class="w-full flex justify-center mt-0 mb-10">
+      <img src="images/on it.gif" alt="Animated GIF" class="w-64 h-auto" />
+    </div>
+  </div>
+</body>
+</html>
