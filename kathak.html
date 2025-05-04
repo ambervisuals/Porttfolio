@@ -38,24 +38,35 @@
         }
     </style>
 </head>
-<body class="bg-black text-gray-800 pt-20">
+<body class="bg-black pt-20">
 
-    <!-- Fixed Header -->
+    <!-- Header Section -->
     <div id="header-placeholder"></div>
+
     <script>
         fetch('header.html')
             .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+            .then(data => {
+                const placeholder = document.getElementById('header-placeholder');
+    
+                // Inject the HTML
+                placeholder.insertAdjacentHTML('beforeend', data);
+    
+                // Extract and execute scripts from the inserted HTML
+                const scripts = placeholder.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    if (oldScript.src) {
+                        newScript.src = oldScript.src; // External script
+                    } else {
+                        newScript.textContent = oldScript.textContent; // Inline script
+                    }
+                    document.head.appendChild(newScript);
+                    oldScript.remove(); // Optional: remove the old <script> from placeholder
+                });
+            });
     </script>
-
-        <!-- Navigation Menu -->
-        <nav class="flex flex-wrap space-x-4 text-lg">
-            <a href="home_page.html" class="text-gray-700 hover:text-gray-900">Home</a>
-            <a href="animation.html" class="text-gray-700 hover:text-gray-900">Animation</a>
-            <a href="studio.html" class="text-gray-700 hover:text-gray-900">Studies</a>
-            <a href="contact_about.html" class="text-gray-700 hover:text-gray-900">About / Contact</a>
-        </nav>
-    </header>
+    
 
     <!-- Content Section -->
     <main class="container mx-auto py-8 px-4 mt-16">
@@ -78,19 +89,19 @@
             <h2 class="text-xl font-bold mb-4">Creative Showcase</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 <div class="image-container">
-                    <img src="images/Kathakali/k1.jpg" alt="Concept art 1" class="w-full h-auto rounded-lg shadow-md"/>
+                    <img src="studies/Kathakali/k1.jpg" alt="Concept art 1" class="w-full h-auto rounded-lg shadow-md"/>
                        </div>
                 <div class="image-container">
-                    <img src="images/Kathakali/k2.jpg" alt="Concept art 2" class="w-full h-auto rounded-lg shadow-md"/>
+                    <img src="studies/Kathakali/k2.jpg" alt="Concept art 2" class="w-full h-auto rounded-lg shadow-md"/>
                 </div>
                 <div class="image-container">
-                    <img src="images/Kathakali/k3.jpg" alt="Concept art 3" class="w-full h-auto rounded-lg shadow-md"/>
+                    <img src="studies/Kathakali/k3.jpg" alt="Concept art 3" class="w-full h-auto rounded-lg shadow-md"/>
                 </div>
                 <div class="image-container">
-                    <img src="images/Kathakali/k4.jpg" alt="Concept art 4" class="w-full h-auto rounded-lg shadow-md"/>
+                    <img src="studies/Kathakali/k4.jpg" alt="Concept art 4" class="w-full h-auto rounded-lg shadow-md"/>
                 </div>
                 <div class="image-container">
-                    <img src="images/Kathakali/k5.jpg" alt="Lantern Concept" class="w-full h-auto rounded-lg shadow-md"/>
+                    <img src="studies/Kathakali/k5.jpg" alt="Lantern Concept" class="w-full h-auto rounded-lg shadow-md"/>
 
                 </div>
             </div>
@@ -100,7 +111,7 @@
         <section>
             <h2 class="text-xl text-gray-400 font-bold mb-4">In Motion</h2>
             <div class="aspect-w-16 aspect-h-9">
-                <iframe src="images/Kathakali/turntablefinal.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="studies/Kathakali/turntablefinal.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
         </section>
     </main>

@@ -26,25 +26,32 @@
 </head>
 <body>
 
-  <!-- ✅ Header -->
-  <div id="header-placeholder"></div>
-  <script>
-      fetch('header.html')
-          .then(response => response.text())
-          .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
+    <!-- Header Section -->
+    <div id="header-placeholder"></div>
 
-    <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
-      <i class="fas fa-bars text-2xl"></i>
-    </button>
-
-    <nav id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-6 text-lg absolute md:relative top-16 left-0 w-full bg-white md:top-0 md:w-auto shadow-md md:shadow-none px-6 py-4 md:p-0">
-      <a href="home_page.html" class="text-gray-400 font-thin hover:text-gray-900">Home</a>
-      <a href="studio.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Studies</a>
-      <a href="work.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Work</a>
-      <a href="contact_about.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; About / Contact</a>
-    </nav>
-  </header>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                const placeholder = document.getElementById('header-placeholder');
+    
+                // Inject the HTML
+                placeholder.insertAdjacentHTML('beforeend', data);
+    
+                // Extract and execute scripts from the inserted HTML
+                const scripts = placeholder.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    if (oldScript.src) {
+                        newScript.src = oldScript.src; // External script
+                    } else {
+                        newScript.textContent = oldScript.textContent; // Inline script
+                    }
+                    document.head.appendChild(newScript);
+                    oldScript.remove(); // Optional: remove the old <script> from placeholder
+                });
+            });
+    </script>
 
   <script>
     document.getElementById("menu-btn").addEventListener("click", function () {
@@ -66,9 +73,9 @@
     <div class="card-wrapper flex justify-center">
   <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
     <div class="wrapper">
-      <img src="images/Kathakali/frnt.png" class="cover-image" alt="Background" />
+      <img src="studies/Kathakali/frnt.png" class="cover-image" alt="Background" />
     </div>
-    <img src="images/Kathakali/frnt_bg.png" class="character" alt="Character" />
+    <img src="studies/Kathakali/frnt_bg.png" class="character" alt="Character" />
     <!-- ✅ Title with Link -->
     <div class="title text-white text-center mt-4">
       <a href="kathak.html" class="text-xl font-semibold text-white hover:underline">Kathakali Dance</a>
@@ -81,9 +88,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/Bharatanatyam/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/Bharatanatyam/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/Bharatanatyam/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/Bharatanatyam/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="bharat.html" class="text-xl font-semibold text-white hover:underline">Bharatanatyam Dance</a>
@@ -95,9 +102,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/hand/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/hand/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/hand/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/hand/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="hand.html" class="text-xl font-semibold text-white hover:underline">Hand</a>
@@ -109,9 +116,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/omovally/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/omovally/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/omovally/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/omovally/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="boy.html" class="text-xl font-semibold text-white hover:underline">Boy</a>
@@ -123,9 +130,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/face/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/face/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/face/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/face/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="face.html" class="text-xl font-semibold text-white hover:underline">Face</a>
@@ -137,9 +144,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/cloth/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/cloth/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/cloth/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/cloth/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="cloth.html" class="text-xl font-semibold text-white hover:underline">Cloth</a>
@@ -151,9 +158,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/car/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/car/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/car/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/car/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="car.html" class="text-xl font-semibold text-white hover:underline">Car</a>
@@ -165,9 +172,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/umberlla/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/umberlla/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/umberlla/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/umberlla/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="umberlla.html" class="text-xl font-semibold text-white hover:underline">Umberlla</a>
@@ -179,9 +186,9 @@
     <div class="card-wrapper flex justify-center">
       <div class="card w-64 h-80 box-border bg-white/10 border border-white/20 backdrop-blur-md rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <div class="wrapper">
-          <img src="images/hammer/frnt.png" class="cover-image" alt="Background" />
+          <img src="studies/hammer/frnt.png" class="cover-image" alt="Background" />
         </div>
-        <img src="images/hammer/frnt_bg.png" class="character" alt="Character" />
+        <img src="studies/hammer/frnt_bg.png" class="character" alt="Character" />
         <!-- ✅ Title with Link -->
         <div class="title text-white text-center mt-4">
           <a href="hammer.html" class="text-xl font-semibold text-white hover:underline">Hammer</a>
@@ -190,7 +197,7 @@
     </div>
     <!-- Center Bottom GIF -->
     <div class="w-full flex justify-center mt-0 mb-10">
-      <img src="images/on it.gif" alt="Animated GIF" class="w-64 h-auto" />
+      <img src="studies/on it.gif" alt="Animated GIF" class="w-64 h-auto" />
     </div>
   </div>
 </body>

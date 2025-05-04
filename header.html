@@ -1,36 +1,49 @@
-<header class="fixed top-0 left-0 w-full bg-white shadow-md py-10 px-6 flex items-center justify-between z-50">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Fix</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md py-4 md:py-6 px-6 flex items-center justify-between z-50">
     <!-- Name & Email -->
     <div class="flex flex-col">
-        <h1  class="text-2xl font-semibold" style="letter-spacing: 6px;">MAYANK GUPTA</h1>
-        <p class="text-sm font-thin text-black" style="letter-spacing: 2px;">MAYANKGUPTA0464@GMAIL.COM</p>
+      <h1 class="text-2xl font-semibold" style="letter-spacing: 6px;">MAYANK GUPTA</h1>
+      <p class="text-sm font-thin text-black" style="letter-spacing: 2px;">ITSMAYANKARTWORK@GMAIL.COM</p>
     </div>
 
     <!-- Hamburger Menu Button (Mobile) -->
-    <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
+    <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none text-3x1">
+      &#9776; <!-- Unicode hamburger icon -->
     </button>
 
     <!-- Navigation Menu -->
-    <nav id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-6 text-lg absolute md:relative top-16 left-0 w-full md:top-0 md:w-auto shadow-md md:shadow-none px-6 py-4 md:p-0">
-        <a href="home_page.html" class="text-gray-400 font-thin hover:text-gray-900">Home</a>
-        <a href="studio.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Studies</a>
-        <a href="work.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Work</a>
-        <a href="contact_about.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; About / Contact</a>
+    <nav id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-6 text-lg absolute md:relative top-full left-0 w-full md:w-auto shadow-md md:shadow-none px-6 py-4 md:p-0 z-40 bg-white">
+      <a href="index.html" class="text-gray-400 font-thin hover:text-gray-900">Home</a>
+      <a href="studio.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Studies</a>
+      <a href="work.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; Work</a>
+      <a href="contact_about.html" class="text-gray-400 font-thin hover:text-gray-900">| &nbsp; About / Contact</a>
     </nav>
-</header>
+  </header>
 
-<script>
+  <script>
     // Mobile menu toggle
-    document.getElementById("menu-btn").addEventListener("click", function() {
-        document.getElementById("menu").classList.toggle("hidden");
+    document.getElementById("menu-btn").addEventListener("click", function () {
+      document.getElementById("menu").classList.toggle("hidden");
     });
 
     // Close menu on window resize to prevent stuck state
-    window.addEventListener("resize", function() {
-        if (window.innerWidth >= 768) {
-            document.getElementById("menu").classList.remove("hidden");
-        } else {
-            document.getElementById("menu").classList.add("hidden");
-        }
-    });
-</script>
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 768) {
+        document.getElementById("menu").classList.remove("hidden");
+      } else {
+        document.getElementById("menu").classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>

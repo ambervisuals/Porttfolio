@@ -12,28 +12,47 @@
 
     <!-- Header Section -->
     <div id="header-placeholder"></div>
+
     <script>
         fetch('header.html')
             .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+            .then(data => {
+                const placeholder = document.getElementById('header-placeholder');
+    
+                // Inject the HTML
+                placeholder.insertAdjacentHTML('beforeend', data);
+    
+                // Extract and execute scripts from the inserted HTML
+                const scripts = placeholder.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    if (oldScript.src) {
+                        newScript.src = oldScript.src; // External script
+                    } else {
+                        newScript.textContent = oldScript.textContent; // Inline script
+                    }
+                    document.head.appendChild(newScript);
+                    oldScript.remove(); // Optional: remove the old <script> from placeholder
+                });
+            });
     </script>
     
 
     <!-- Content Section -->
     <main class="max-w-5xl mx-auto p-4 space-y-8 mt-16">
 
-        <!-- Video Section -->
+        <!-- Video 12 -->
         <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
             <div class="flex flex-col md:flex-row items-start">
                 <div class="md:w-2/3 w-full">
-                    <iframe src="video/The Accountant 2.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    <iframe src="work/a2/The Accountant 2.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
                 <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
                     <h2 class="text-xl font-bold">The Accountant 2</h2>
                     <p class="mt-2 text-gray-500">Handled lighting and look development for The Accountant 2, enhancing the film’s visual tone to complement its gritty narrative and elevate the cinematic quality through polished, story-driven visuals.</p>
                     <p class="mt-4 text-gray-500">Contributed VFX work for Kiddan LA Studio.</p>
-                    <p class="mt-4 text-gray-400">Software Used:Maya, Blender, ZBrush, Nuke, Photoshop </p>
-                    <a href="concepts & purpose.html">
+                    <p class="mt-4 text-gray-400">Software Used:Maya, Blender, Unreal Engine 5, ZBrush, Nuke, Photoshop </p>
+                    <a href="concepts & purpose(a2).html">
                         <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
                             Concepts & Process
                         </button>
@@ -42,98 +61,62 @@
             </div>
         </div>
 
-        <!-- Video 2 -->
+        <!-- Video 11 -->
         <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
             <div class="flex flex-col md:flex-row items-start">
                 <div class="md:w-2/3 w-full">
-                    <iframe src="video/unt.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    <iframe src="work/ust/usttr.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
                 <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
                     <h2 class="text-xl font-bold">Unstoppable</h2>
                     <p class="mt-2 text-gray-500">A thrilling adventure through the mysterious and dangerous Void, where unexpected challenges await...</p>
                     <p class="mt-4 text-gray-500">Contributed VFX work for Kiddan LA Studio.</p>
-                    <p class="mt-4 text-gray-400">Software Used: Maya, Photoshop, After Effects</p>
-                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                    <p class="mt-4 text-gray-400">Software Used: Maya, Arnold, Houdini, ZBrush, Mush 3D, Marvelous Designer, Substance Painter, Nuke, Photoshop,</p>
+                    <a href="concepts & purpose(ust).html">
+                        <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                            Concepts & Process
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Video 3 -->
+        <!-- Video 10 -->
         <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
             <div class="flex flex-col md:flex-row items-start">
                 <div class="md:w-2/3 w-full">
-                    <iframe src="video/int.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    <iframe src="work/Instigators/int.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                 </div>
                 <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
                     <h2 class="text-xl font-bold">The Instigators</h2>
                     <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
                     <p class="mt-4 text-gray-500">Contributed VFX work for Kiddan LA Studio.</p>
-                    <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                    <p class="mt-4 text-gray-400">Software Used: Maya, Substance Painter, Arnold, Photoshop, Nuke</p>
+                    <a href="concepts & purpose(ins).html">
+                        <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                            Concepts & Process
+                        </button>
+                    </a>                
                 </div>
             </div>
         </div>
-
-    <!--Video 4 -->
+        
+            <!--Video 9 -->
     <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
         <div class="flex flex-col md:flex-row items-start">
             <div class="md:w-2/3 w-full">
-                <iframe src="video/animix.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="work/carter/videoplayback.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">Animixies</h2>
-                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
-            </div>
-        </div>
-    </div>           
-
-    <!--Video 5 -->
-    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
-        <div class="flex flex-col md:flex-row items-start">
-            <div class="md:w-2/3 w-full">
-                <iframe src="video/iqoo.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">iQOO Neo 10R</h2>
-                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
-            </div>
-        </div>
-    </div>
-
-    <!--Video 6 -->
-    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
-        <div class="flex flex-col md:flex-row items-start">
-            <div class="md:w-2/3 w-full">
-                <iframe src="video/levnovo_tws.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold"> Lenovo TWS</h2>
-                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
-            </div>
-        </div>
-    </div>
-
-    <!--Video 7 -->
-    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
-        <div class="flex flex-col md:flex-row items-start">
-            <div class="md:w-2/3 w-full">
-                <iframe src="work/Yoga Slim 7x.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">Snapdragon X Elite processor | Lenovo Yoga Slim 7x</h2>
-                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                <h2 class="text-xl font-bold">Carter</h2>
+                <p class="mt-2 text-gray-500">Contributed Freelance VFX Work</p>
+                <p class="mt-4 text-gray-500">Contributed Freelance VFX Work.</p>
+                <p class="mt-4 text-gray-400">Software Used: Nuke, Photoshop</p>
+                <a href="concepts & purpose(ct).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -142,81 +125,163 @@
     <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
         <div class="flex flex-col md:flex-row items-start">
             <div class="md:w-2/3 w-full">
-                <iframe src="work/dellr14/videoplayback.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="work/animix/animix.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">DELL Aurora R14 Desktop</h2>
+                <h2 class="text-xl font-bold">Animixies</h2>
                 <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                <p class="mt-4 text-gray-500">Contributed VFX work for Citrus Ink Studios.</p>
+                <p class="mt-4 text-gray-400">Software Used: Maya, ZBrush, Substance Painter</p>
+                <a href="concepts & purpose(anm).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>           
+
+    <!--Video 7 -->
+    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
+        <div class="flex flex-col md:flex-row items-start">
+            <div class="md:w-2/3 w-full">
+                <iframe src="work/iqoo/iqoot.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
+                <h2 class="text-xl font-bold">iQOO Neo 10R</h2>
+                <p class="mt-2 text-gray-500">Contributed VFX work for Gratiaverse – Visual Effects.</p>
+                <p class="mt-4 text-gray-500">Contributed VFX work for Gratiaverse – Visual Effects.</p>
+                <p class="mt-4 text-gray-400">Software Used: Maya, Substance Painter, Photoshop</p>
+                <a href="concepts & purpose(neo).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>           
             </div>
         </div>
     </div>
 
-    <!--Video 9 -->
+    <!--Video 6 -->
     <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
         <div class="flex flex-col md:flex-row items-start">
             <div class="md:w-2/3 w-full">
-                <iframe src="work/MIZUNO PRO 245.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="work/L_tws/levnovo_twst.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
+                <h2 class="text-xl font-bold">Lenovo Yoga True Wireless Stereo Earbuds</h2>
+                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Render</p>
+                <a href="concepts & purpose(tws).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
+            </div>
+        </div>
+    </div>
+
+    <!--Video 5 -->
+    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
+        <div class="flex flex-col md:flex-row items-start">
+            <div class="md:w-2/3 w-full">
+                <iframe src="work/processor/Yoga Slim 7xt.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
+                <h2 class="text-xl font-bold">Snapdragon X Elite processor | Lenovo Yoga Slim 7x</h2>
+                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Render</p>
+                <a href="concepts & purpose(snap_p).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
+            </div>
+        </div>
+    </div>
+
+    <!--Video 4 -->
+    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
+        <div class="flex flex-col md:flex-row items-start">
+            <div class="md:w-2/3 w-full">
+                <iframe src="work/dellr14/r14t.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
+                <h2 class="text-xl font-bold">DELL Aurora R14 Desktop</h2>
+                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Rendero</p>
+                <a href="concepts & purpose(r14).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
+            </div>
+        </div>
+    </div>
+
+    <!--Video 3 -->
+    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
+        <div class="flex flex-col md:flex-row items-start">
+            <div class="md:w-2/3 w-full">
+                <iframe src="work/MIZUNO/MIZUNO PRO 245.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
                 <h2 class="text-xl font-bold">MIZUNO PRO 245</h2>
                 <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Render</p>
+                <a href="concepts & purpose(mizu).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
             </div>
         </div>
     </div>  
     
-     <!--Video 10 -->
+     <!--Video 2 -->
     <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
         <div class="flex flex-col md:flex-row items-start">
             <div class="md:w-2/3 w-full">
-                <iframe src="work/dellr14/videoplayback.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="work/Dell_Mouse/Dell Bluetooth Travel Mouse .mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">DELL Aurora R14 Desktop</h2>
+                <h2 class="text-xl font-bold">Dell Bluetooth Travel Mouse - MS700</h2>
                 <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Render</p>
+                <a href="concepts & purpose(mouse).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
             </div>
         </div>
     </div>
 
-    <!--Video 11 -->
+    <!--Video 1 -->
     <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
         <div class="flex flex-col md:flex-row items-start">
             <div class="md:w-2/3 w-full">
-                <iframe src="work/dellr14/videoplayback.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="work/Hair Straightener/stranitert.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">DELL Aurora R14 Desktop</h2>
+                <h2 class="text-xl font-bold">Panasonic Nanoe Hair Straightener</h2>
                 <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
+                <p class="mt-4 text-gray-500">Contributed VFX work for HMX Media.</p>
+                <p class="mt-4 text-gray-400">Software Used: Blender, Photoshop, Octane Render</p>
+                <a href="concepts & purpose(p_stra).html">
+                    <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">
+                        Concepts & Process
+                    </button>
+                </a>            
             </div>
         </div>
     </div>
 
-    <!--Video 12 -->
-    <div class="bg-white/15 backdrop-blur-md p-6 rounded-lg shadow-md border border-white/20 text-white">
-        <div class="flex flex-col md:flex-row items-start">
-            <div class="md:w-2/3 w-full">
-                <iframe src="work/dellr14/videoplayback.mp4" class="w-full h-64 md:h-80 rounded-lg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="md:w-1/3 md:pl-6 mt-4 md:mt-0">
-                <h2 class="text-xl font-bold">DELL Aurora R14 Desktop</h2>
-                <p class="mt-2 text-gray-500">Explore the magical and enchanting forest, filled with mystical creatures and hidden secrets...</p>
-                <p class="mt-4 text-gray-500">Submitted to Agora Studio's AnimChallenge. January 2025, themed "Enchantment".</p>
-                <p class="mt-4 text-gray-400">Software Used: Cinema 4D, ZBrush, Premiere Pro</p>
-                <button class="mt-4 px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded hover:bg-white/20 transition">Concepts & Process</button>
-            </div>
-        </div>
-    </div>
+
 
 
 

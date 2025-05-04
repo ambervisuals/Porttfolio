@@ -8,13 +8,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-</head>
-<div id="header-placeholder"></div>
-<script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('header-placeholder').innerHTML = data);
-</script>
+    <!-- Header Section -->
+    <div id="header-placeholder"></div>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                const placeholder = document.getElementById('header-placeholder');
+    
+                // Inject the HTML
+                placeholder.insertAdjacentHTML('beforeend', data);
+    
+                // Extract and execute scripts from the inserted HTML
+                const scripts = placeholder.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    if (oldScript.src) {
+                        newScript.src = oldScript.src; // External script
+                    } else {
+                        newScript.textContent = oldScript.textContent; // Inline script
+                    }
+                    document.head.appendChild(newScript);
+                    oldScript.remove(); // Optional: remove the old <script> from placeholder
+                });
+            });
+    </script>
 
     <!-- Content Section -->
     <div class="container mx-auto px-4 py-80 mt-16">
@@ -23,11 +42,9 @@
             <div class="md:w-2/3 text-center md:text-center text-white">
                 <h2 class="text-2xl font-bold mb-4">MAYANK GUPTA</h2>
                 <p class="mb-4">
-                    I am a passionate CG artist with a strong photography foundation and a deep understanding of light as a storytelling tool. With experience on high-profile projects, I blend artistic sensibility with technical expertise to craft compelling visuals. Committed to innovation and precision, I create immersive, visually striking narratives that resonate with audiences.
-                </p>
+                    I'm a CG artist with a strong foundation in photography and a genuine love for storytelling through light. Whether it's shaping the mood of a scene or bringing out the texture in a product, I combine artistic intuition with technical precision to create visuals that feel both immersive and meaningful. Over the years, I've had the chance to work on high-profile projects that pushed me to grow, explore, and innovate with every frame.                </p>
                 <p class="mb-4">
-                    He has a deep love for warm colors and a passion for language. When he’s not drawing or capturing moments through photography, he’s likely lost in thought, murmuring about his next big idea—which, somehow, always seems to involve rocks.
-                </p>
+                    I’m drawn to warm colors, expressive language, and the little details that spark big ideas. When I’m not behind the screen or camera, you’ll probably find me sketching, daydreaming, or rambling about something oddly specific—usually rocks. It’s all part of how I see and build the worlds I imagine.                </p>
             <!-- Centered Contact Me Button -->
              <div class="flex justify-center mt-6">
              <a href="MAYANKGUPTA0464@GMAIL.COM">
@@ -52,8 +69,8 @@
 
             <!-- Image -->
             <div class="md:w-1/1">
-                <img src="images/self.png" 
-                     alt="Illustration of Beatriz Marques" 
+                <img src="home/self.png" 
+                     alt="Illustration of mayank gupta" 
                      class="w-64 h-64 md:w-72 md:h-72 rounded-lg shadow-lg object-cover"/>
             </div>
         </main>
